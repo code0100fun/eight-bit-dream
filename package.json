@@ -4,10 +4,15 @@
   "description": "Nintendo music generator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist/ tmp/ && ./node_modules/.bin/broccoli build dist"
   },
   "author": "Chase McCarthy",
   "license": "ISC",
   "devDependencies": {
+    "broccoli": "^0.16.5",
+    "broccoli-babel-transpiler": "^5.4.2",
+    "broccoli-merge-trees": "^0.2.3",
+    "broccoli-static-compiler": "^0.2.1"
   }
 }
