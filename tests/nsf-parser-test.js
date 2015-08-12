@@ -24,4 +24,14 @@ describe('NSF Parser', function(){
     expect(nsf.name).to.equal('Overworld (Super Mario Bros.)');
   });
 
+  it('author', function(){
+    const nsf = parse(nsfBytes);
+    expect(nsf.author).to.equal('K.Kondo (arr. Geoff Rich)');
+  });
+
+  it('copyright', function(){
+    const nsf = parse(nsfBytes);
+    expect(nsf.copyright).to.equal('1985');
+  });
+
 });
