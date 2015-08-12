@@ -9,4 +9,14 @@ describe('NSF Parser', function(){
     expect(nsf.version).to.equal(1);
   });
 
+  it('song count', function(){
+    const nsf = parse(nsfBytes);
+    expect(nsf.songCount).to.equal(1);
+  });
+
+  it('start song', function(){
+    const nsf = parse(nsfBytes);
+    expect(nsf.startSong).to.equal(1);
+  });
+
 });
