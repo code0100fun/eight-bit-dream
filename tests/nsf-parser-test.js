@@ -34,4 +34,9 @@ describe('NSF Parser', function(){
     expect(nsf.copyright).to.equal('1985');
   });
 
+  it('standard', function(){
+    const nsf = parse(nsfBytes);
+    expect(nsf.standard).to.equal('PAL/NTSC');
+  });
+
 });
