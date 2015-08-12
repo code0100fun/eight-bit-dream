@@ -1,0 +1,16 @@
+{
+  "framework": "mocha+chai",
+  "src_files": [
+    "lib/**/*.js",
+    "tests/**/*.js"
+  ],
+  "test_page": "dist/tests/index.html",
+  "launchers": {
+    "Node": {
+      "command": "mocha dist/tests/*-test.js"
+    }
+  },
+  "before_tests": "npm run build",
+  "launch_in_dev": [ "Node" ],
+  "launch_in_ci": [ "Node" ]
+}
