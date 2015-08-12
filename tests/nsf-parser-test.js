@@ -39,4 +39,9 @@ describe('NSF Parser', function(){
     expect(nsf.standard).to.equal('PAL/NTSC');
   });
 
+  it('chip', function(){
+    const nsf = parse(nsfBytes);
+    expect(nsf.chip).to.equal('');
+  });
+
 });
