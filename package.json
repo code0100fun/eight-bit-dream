@@ -1,0 +1,13 @@
+{
+  "name": "eight-bit-dream",
+  "version": "0.0.1",
+  "description": "Nintendo music generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chase McCarthy",
+  "license": "ISC",
+  "devDependencies": {
+  }
+}
