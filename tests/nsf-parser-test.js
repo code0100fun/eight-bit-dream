@@ -19,4 +19,9 @@ describe('NSF Parser', function(){
     expect(nsf.startSong).to.equal(1);
   });
 
+  it('name', function(){
+    const nsf = parse(nsfBytes);
+    expect(nsf.name).to.equal('Overworld (Super Mario Bros.)');
+  });
+
 });
