@@ -2,6 +2,10 @@ import parse from '../eight-bit-dream/nsf-parser';
 import { expect } from 'chai';
 import nsfBytes from './fixtures/mario-nsf';
 
+function hex(number) {
+  return number.toString(16);
+}
+
 describe('NSF Parser', function(){
 
   it('version number', function(){
@@ -42,6 +46,21 @@ describe('NSF Parser', function(){
   it('chip', function(){
     const nsf = parse(nsfBytes);
     expect(nsf.chip).to.equal('');
+  });
+
+  it('load address', function(){
+    const nsf = parse(nsfBytes);
+    expect(hex(nsf.load)).to.equal(hex(0xfca6));
+  });
+
+  it('init address', function(){
+    const nsf = parse(nsfBytes);
+    expect(hex(nsf.init)).to.equal(hex(0x00ac));
+  });
+
+  it('play address', function(){
+    const nsf = parse(nsfBytes);
+    expect(hex(nsf.play)).to.equal(hex(0x03ac));
   });
 
 });
