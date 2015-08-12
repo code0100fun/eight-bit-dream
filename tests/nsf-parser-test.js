@@ -1,10 +1,12 @@
-import hello from '../eight-bit-dream/nsf-parser';
+import parse from '../eight-bit-dream/nsf-parser';
 import { expect } from 'chai';
+import nsfBytes from './fixtures/mario-nsf';
 
 describe('NSF Parser', function(){
 
-  it('example', function(){
-    expect(hello()).to.equal('hello world');
+  it('version number', function(){
+    const nsf = parse(nsfBytes);
+    expect(nsf.version).to.equal(1);
   });
 
 });
