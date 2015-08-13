@@ -1,6 +1,6 @@
 import parse from '../eight-bit-dream/nsf-parser';
 import { expect } from 'chai';
-import nsfBytes from './fixtures/mario-nsf';
+import nsfBytes from './fixtures/zelda-nsf';
 
 function hex(number) {
   return number.toString(16);
@@ -25,17 +25,17 @@ describe('NSF Parser', function(){
 
   it('name', function(){
     const nsf = parse(nsfBytes);
-    expect(nsf.name).to.equal('Overworld (Super Mario Bros.)');
+    expect(nsf.name).to.equal('The Legend of Zelda');
   });
 
   it('author', function(){
     const nsf = parse(nsfBytes);
-    expect(nsf.author).to.equal('K.Kondo (arr. Geoff Rich)');
+    expect(nsf.author).to.equal('Koji Kondo');
   });
 
   it('copyright', function(){
     const nsf = parse(nsfBytes);
-    expect(nsf.copyright).to.equal('1985');
+    expect(nsf.copyright).to.equal('1987 Nintendo');
   });
 
   it('standard', function(){
@@ -50,17 +50,17 @@ describe('NSF Parser', function(){
 
   it('load address', function(){
     const nsf = parse(nsfBytes);
-    expect(hex(nsf.load)).to.equal(hex(0xfca6));
+    expect(hex(nsf.load)).to.equal(hex(0x0080));
   });
 
   it('init address', function(){
     const nsf = parse(nsfBytes);
-    expect(hex(nsf.init)).to.equal(hex(0x00ac));
+    expect(hex(nsf.init)).to.equal(hex(0x0080));
   });
 
   it('play address', function(){
     const nsf = parse(nsfBytes);
-    expect(hex(nsf.play)).to.equal(hex(0x03ac));
+    expect(hex(nsf.play)).to.equal(hex(0x0380));
   });
 
 });
