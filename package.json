@@ -14,6 +14,7 @@
     "broccoli-babel-transpiler": "^5.4.2",
     "broccoli-concat": "0.0.13",
     "broccoli-merge-trees": "^0.2.3",
+    "broccoli-pegjs": "0.0.1",
     "broccoli-static-compiler": "^0.2.1",
     "chai": "^3.2.0",
     "loader.js": "^3.3.0",

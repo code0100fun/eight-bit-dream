@@ -3,6 +3,7 @@ var compileModules = require('broccoli-babel-transpiler');
 var mergeTrees = require('broccoli-merge-trees');
 var path = require('path');
 var concat = require('broccoli-concat');
+var peg = require('broccoli-pegjs');
 
 var libTreeES6 = pickFiles('lib', {
   srcDir: '/',
@@ -16,7 +17,23 @@ var testsTreeES6 = pickFiles('tests', {
   destDir: '/tests'
 });
 
-var libTree = compileModules(libTreeES6, {
+var pegTree = pickFiles('lib/parser/', {
+  srcDir: '/',
+  files: ['*.pegjs'],
+  destDir: '/eight-bit-dream/parser'
+});
+
+var pegTreeES6 = peg(pegTree, {
+  wrapper: function (src, parser) {
+    return 'import builder from \'../ftm-builder\';' +
+    'const Parser = ' + parser + ';\n' +
+    'const parse = Parser.parse, SyntaxError = Parser.SyntaxError;\n' +
+    'export { SyntaxError, parse };\n' +
+    'export default parse;';
+  }
+});
+
+var libTree = compileModules(mergeTrees([libTreeES6, pegTreeES6]), {
   modules: 'umd',
   moduleIds: true
 });
